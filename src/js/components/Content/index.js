@@ -65,7 +65,11 @@ class Content extends Component {
   // Adjust scrolling
   componentDidUpdate = () => {
     if (this.inputWrapper !== null) {
-      this.inputWrapper.scrollIntoView(false);
+      this.inputWrapper.scrollIntoView({
+        behavior: 'auto',
+        block: 'center',
+        inline: 'nearest',
+      });
     }
   };
 
@@ -170,6 +174,7 @@ class Content extends Component {
                 <MainInput
                   type="text"
                   tabIndex="-1"
+                  type="email"
                   innerRef={(com) => { this.com = com; }}
                   onKeyPress={this.handleChange}
                   onKeyDown={this.handleKeyPress}
